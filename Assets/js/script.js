@@ -27,10 +27,9 @@ hoursOfTheDay.forEach((hr) => {
 
   var textArea = $(`<textarea name="${hr.text}" maxLength="50" class="col-10 col-span-8 h-16 p-6 ${color(hr)}">${window.localStorage.getItem(hr.text) || ""}</textarea>`);
 
-  textArea.keydown((e) => {
-    if (e.keyCode == 13 && !e.shiftKey) {
-      e.preventDefault();
-      return false;
+  textArea.on('keydown', function(event) {
+    if (event.keyCode == 13 && !event.shiftKey) {
+        event.preventDefault();
     }
   });
 
